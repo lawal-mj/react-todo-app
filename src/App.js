@@ -5,7 +5,7 @@ import Task from "./components/Task";
 
 export default function App(){
     return (
-        <div>
+        <div className="container-fluid todo-container">
             <Header />
             <Input />
             <Task />

@@ -1,6 +1,6 @@
 export default function Task() {
     return (
-        <div className="container-fluid todo-container">
+        <div>
             <div className="tasks">
                 <div className="task--item">
                     <li className="list-group-item d-flex justify-content-between align-items-start">
