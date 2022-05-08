@@ -1,8 +1,15 @@
-export default function App() {
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Task from "./components/Task";
+
+
+export default function App(){
     return (
         <div>
-            <h1>This is the App Component</h1>
-            <button type="button" className="btn btn-primary">Primary</button>
+            <Header />
+            <Input />
+            <Task />
         </div>
     )
+
 }
