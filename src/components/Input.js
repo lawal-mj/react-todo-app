@@ -7,7 +7,11 @@ export default function Input(props) {
         type="text"
         onChange={props.update}
       />
-      <button className="task-button" onClick={props.addTask}>
+      <button 
+        className="task-button" 
+        id="task-button"
+        onClick={props.addTask}
+       >
         Add
       </button>
     </div>
