@@ -3,7 +3,7 @@ import Input from "./components/Input";
 import Task from "./components/Task";
 import { useState } from "react";
 
-const todoList = [];
+const todoList = ["Example Task"];
 
 export default function App() {
   const [inputValue, setInputValue] = useState("todoList");
@@ -21,6 +21,7 @@ export default function App() {
   function addTask(event) {
     todoList.push(inputValue);
     setInputValue("")
+    console.log(todoList)
   }
 
   return (
