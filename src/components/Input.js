@@ -6,6 +6,7 @@ export default function Input(props) {
         className="input"
         type="text"
         onChange={props.update}
+        id="input"
       />
       <button 
         className="task-button" 

@@ -18,10 +18,11 @@ export default function App() {
     });
   }
 
+
+
   function addTask(event) {
     todoList.push(inputValue);
     setInputValue("")
-    console.log(todoList)
   }
 
   return (
