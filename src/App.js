@@ -16,10 +16,8 @@ export default function App() {
 
   function addTask(event) {
     todoList.push(inputValue);
-    console.log(todoList)
+    console.log(todoList);
   }
-
-
 
   return (
     <div className="container-fluid todo-container">
