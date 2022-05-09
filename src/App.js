@@ -12,6 +12,8 @@ export default function App() {
     return <Task task={item} />;
   });
 
+
+
   function updateInput(event) {
     setInputValue((prevValue) => {
       return event.target.value;
@@ -20,9 +22,15 @@ export default function App() {
 
 
 
-  function addTask(event) {
-    todoList.push(inputValue);
-    setInputValue("")
+  function addTask() {
+    if (inputValue === ""){
+  
+    }else {
+      todoList.push(inputValue);
+      setInputValue("")
+
+    }
+
   }
 
   return (
@@ -33,3 +41,5 @@ export default function App() {
     </div>
   );
 }
+
+
