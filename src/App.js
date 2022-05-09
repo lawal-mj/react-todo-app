@@ -8,6 +8,10 @@ const todoList = [];
 export default function App() {
   const [inputValue, setInputValue] = useState("todoList");
 
+  const TaskList = todoList.map((item) => {
+    return <Task task={item} />;
+  });
+
   function updateInput(event) {
     setInputValue((prevValue) => {
       return event.target.value;
@@ -16,14 +20,14 @@ export default function App() {
 
   function addTask(event) {
     todoList.push(inputValue);
-    console.log(todoList);
+    setInputValue("")
   }
 
   return (
     <div className="container-fluid todo-container">
       <Header />
       <Input update={updateInput} addTask={addTask} />
-      <Task />
+      {TaskList}
     </div>
   );
 }

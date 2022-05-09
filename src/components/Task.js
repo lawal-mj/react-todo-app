@@ -1,4 +1,4 @@
-export default function Task() {
+export default function Task(props) {
   return (
     <div>
       <div className="tasks">
@@ -6,7 +6,7 @@ export default function Task() {
           <li className="list-group-item d-flex justify-content-between align-items-start">
             <div className="m-1 me-auto">
               <div className="fw-bold">
-                Subheading<button className="delete--task">Delete</button>
+                {props.task}<button className="delete--task">Delete</button>
               </div>
             </div>
           </li>
