@@ -7,7 +7,9 @@ export default function Input(props) {
         type="text"
         onChange={props.update}
       />
-      <button className="task-button">Add</button>
+      <button className="task-button" onClick={props.addTask}>
+        Add
+      </button>
     </div>
   );
 }
