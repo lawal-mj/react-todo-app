@@ -23,6 +23,9 @@ export default function App() {
     setInputValue(event.target.value);
   }
 
+
+  
+
   function AddTask(e) {
     const taskObject = {
       input: inputValue,
@@ -31,6 +34,9 @@ export default function App() {
     e.preventDefault();
     taskData.push(taskObject);
   }
+
+
+  
 
   return (
     <div>
