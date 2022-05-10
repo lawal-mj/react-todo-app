@@ -1,6 +1,6 @@
-export default function Task(){
+export default function Task(props){
   return (
-    <li>Some Task</li>
+    <li>{props.task}</li>
   )
   
 }
