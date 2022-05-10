@@ -19,7 +19,7 @@ export default function App() {
   });
 
   function AddTask() {
-    const formData = inputData;
+    const formData =[...inputData];
 
     formData.push({
       id: inputData.length + 1,
