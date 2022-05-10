@@ -11,8 +11,10 @@ const dataList = [
 ];
 
 export default function App() {
+  // maintains the state of the input box 
   const [inputBoxValue, setinputBoxValue] = useState("");
 
+  // maintains the state of the task dataList, i'll use it later to edit tasks
   const [inputData, setInputData] = useState(dataList);
 
   const taskList = inputData.map((item) => {
