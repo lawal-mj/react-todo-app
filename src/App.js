@@ -3,44 +3,40 @@ import Input from "./components/Input";
 import Task from "./components/Task";
 import { useState } from "react";
 
-const taskList = []
+const taskList = [];
 
-const taskData = {
-  input: "",
-}
+const taskData = [
+  {
+    input: "Example task",
+    id: 1,
+  },
+];
 
 export default function App() {
-  const [inputData, setInputData] = useState();
+  // the value of the input box at the in stste
+  const [inputValue, setInputValue] = useState("");
 
+  // the data object that will contain all our tasks 
+  const [inputData, setInputData] = useState(taskData);
 
-
-  function updateInput(e) {
-    const target = e.target;
-    setInputData(function (prevData) {
-      return {
-        ...prevData,
-        input: target.value,
-      };
-    });
+  function updateinput(event) {
+    setInputValue(event.target.value);
   }
-
-
 
   function AddTask(e) {
+    const taskObject = {
+      input: inputValue,
+      id: taskData.length + 1,
+    };
     e.preventDefault();
-    taskList.push(inputData.input)
+    taskData.push(taskObject);
   }
-
-
-
-  console.log(taskList)
-
 
   return (
     <div>
       <Header />
 
-      <Input hasChanged={updateInput} addButton={AddTask} />
+      <Input hasChanged={updateinput} addButton={AddTask} />
 
       <Task />
     </div>
