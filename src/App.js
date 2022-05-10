@@ -7,7 +7,7 @@ import { useState } from "react";
 const dataList = [
   {
     id: 1,
-    task: "Example Task",
+    task: "Sample Task",
   },
 ];
 
