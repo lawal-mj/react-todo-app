@@ -3,10 +3,16 @@ import Input from "./components/Input";
 import Task from "./components/Task";
 import { useState } from "react";
 
+const taskList = []
+
+const taskData = {
+  input: "",
+}
+
 export default function App() {
-  const [inputData, setInputData] = useState({
-    input: "",
-  });
+  const [inputData, setInputData] = useState();
+
+
 
   function updateInput(e) {
     const target = e.target;
@@ -19,18 +25,22 @@ export default function App() {
   }
 
 
-  function AddTask(e){
-    e.preventDefault()
+
+  function AddTask(e) {
+    e.preventDefault();
+    taskList.push(inputData.input)
   }
+
+
+
+  console.log(taskList)
+
 
   return (
     <div>
       <Header />
 
-      <Input 
-      hasChanged={updateInput}
-      addButton={AddTask}
-      />
+      <Input hasChanged={updateInput} addButton={AddTask} />
 
       <Task />
     </div>
