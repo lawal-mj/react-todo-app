@@ -1,8 +1,9 @@
 import Task from "./components/Task";
 import Input from "./components/Input";
+import Header from "./components/Header";
 import { useState } from "react";
 
-// sample data list with an example task there 
+// sample data list with an example task there
 const dataList = [
   {
     id: 1,
@@ -11,7 +12,7 @@ const dataList = [
 ];
 
 export default function App() {
-  // maintains the state of the input box 
+  // maintains the state of the input box
   const [inputBoxValue, setinputBoxValue] = useState("");
 
   // maintains the state of the task dataList, i'll use it later to edit tasks
@@ -38,8 +39,9 @@ export default function App() {
 
   return (
     <div>
-      <ul>{taskList}</ul>
+      <Header />
       <Input updateInput={updateInput} addTask={AddTask} />
+      <ul>{taskList}</ul>
     </div>
   );
 }
