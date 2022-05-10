@@ -2,6 +2,7 @@ import Task from "./components/Task";
 import Input from "./components/Input";
 import { useState } from "react";
 
+// sample data list with an example task there 
 const dataList = [
   {
     id: 1,
@@ -18,9 +19,9 @@ export default function App() {
     return <Task key={item.id} id={item.id} task={item.task} />;
   });
 
+  // adds task to the task list and somehow dosent work without the spread operator
   function AddTask() {
-    const formData =[...inputData];
-
+    const formData = [...inputData];
     formData.push({
       id: inputData.length + 1,
       task: inputBoxValue,
@@ -28,11 +29,10 @@ export default function App() {
     setInputData(formData);
   }
 
-  function updateInput(event){
-      setinputBoxValue(event.target.value)
+  // consistently updates the input data as the user changes it
+  function updateInput(event) {
+    setinputBoxValue(event.target.value);
   }
-
-
 
   return (
     <div>
