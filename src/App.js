@@ -1,10 +1,8 @@
 import { useState } from "react";
-
 // Task List Components.
 import OngoingTask from "./components/OngoingTask";
 import CompletedTask from "./components/CompletedTask";
 import DeletedTask from "./components/DeletedTask";
-
 // Other Button Components
 import Input from "./components/Input";
 import Header from "./components/Header";
