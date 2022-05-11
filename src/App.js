@@ -1,11 +1,10 @@
-import { useState } from "react";
-// components 
+import { useEffect, useState } from "react";
+// components
 import OngoingTask from "./components/OngoingTask";
 import Input from "./components/Input";
 import Header from "./components/Header";
 import CompletedTask from "./components/CompletedTask";
 import ToggleCompletedButton from "./components/ToggleCompletedButton";
-
 
 export default function App() {
   const [toggleCompleted, setToggleCompleted] = useState(false);
@@ -35,6 +34,13 @@ export default function App() {
       />
     );
   });
+
+  function enterKeyPress(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      AddTask();
+    }
+  }
 
   // maps completed tasks to the list
   const completedTaskList = completedList.map((item) => {
@@ -95,7 +101,11 @@ export default function App() {
     <div>
       <Header />
       <ul>{taskList}</ul>
-      <Input updateInput={updateInput} addTask={AddTask} />
+      <Input
+        updateInput={updateInput}
+        addTask={AddTask}
+        handleKeyPress={enterKeyPress}
+      />
       <ToggleCompletedButton toggle={toggleCompletedTaskView} />
       {toggleCompleted && completedTaskList}
     </div>
