@@ -10,7 +10,7 @@ button {
 
 }
 
-.button--delete, .button--complete, .button--toggle--completed {
+.button--delete, .button--complete, .button--toggle--completed, .button--toggle--deleted{
     background-color: red;
     border-radius: 5px;
     margin-left: 4px;
@@ -34,4 +34,8 @@ button {
 
 .button--toggle--deleted {
     background-color: purple;
+}
+
+.button--toggle--completed, .button--toggle--deleted {
+    display: block;
 }

@@ -139,8 +139,8 @@ export default function App() {
         handleKeyPress={enterKeyPress}
       />
       <ToggleCompletedButton toggle={toggleCompletedTaskView} />
-      <ToggleDeletedButton toggle={toggleDeletedTaskView} />
       {toggleCompleted && completedTaskList}
+      <ToggleDeletedButton toggle={toggleDeletedTaskView} />
       {toggleDeleted && deletedTaskList}
     </div>
   );
