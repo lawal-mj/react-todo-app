@@ -1,4 +1,4 @@
-import Task from "./components/Task";
+import OngoingTask from "./components/OngoingTask";
 import Input from "./components/Input";
 import Header from "./components/Header";
 import { useState } from "react";
@@ -21,7 +21,7 @@ export default function App() {
   // maps over our data and passes it into the components 
   const taskList = inputData.map((item) => {
     return (
-      <Task
+      <OngoingTask
         key={item.id}
         id={item.id}
         task={item.task}
