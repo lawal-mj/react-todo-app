@@ -3,6 +3,8 @@ import Input from "./components/Input";
 import Header from "./components/Header";
 import { useState } from "react";
 
+const completedTaskList = [];
+
 // sample data list with an example task there
 const dataList = [
   {
@@ -18,7 +20,9 @@ export default function App() {
   // maintains the state of the task dataList, i'll use it later to edit tasks
   const [inputData, setInputData] = useState(dataList);
 
-  // maps over our data and passes it into the components 
+  const [completedList, setCompletedList] = useState(completedTaskList);
+
+  // maps over our data and passes it into the components
   const taskList = inputData.map((item) => {
     return (
       <OngoingTask
@@ -26,16 +30,16 @@ export default function App() {
         id={item.id}
         task={item.task}
         deleteTasks={deleteTasks}
+        completeTask={completeTask} 
       />
     );
   });
 
   // the function will take in id as a parameter and call it from the child component
   function deleteTasks(id) {
-    let newdata= []
+    let newdata = [];
     for (let i = 0; i < inputData.length; i++) {
       if (id === inputData[i].id) {
-
       } else {
         newdata.push(inputData[i]);
       }
@@ -61,11 +65,27 @@ export default function App() {
     setinputBoxValue(event.target.value);
   }
 
+  function completeTask(id) {
+    let newdata = [];
+    let completed = [...completedList]
+    for (let i = 0; i < inputData.length; i++) {
+      if (id === inputData[i].id) {
+        completed.push(inputData[i])
+      } else {
+        newdata.push(inputData[i]);
+      }
+    }
+    setCompletedList(completed);
+    setInputData(newdata);
+  }
+  console.log(completedList)
+
   return (
     <div>
       <Header />
       <ul>{taskList}</ul>
-      <Input updateInput={updateInput} addTask={AddTask} />
+      <Input updateInput={updateInput} addTask={AddTask}/>
     </div>
   );
 }
+

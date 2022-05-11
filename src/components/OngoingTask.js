@@ -9,7 +9,7 @@ export default function OngoingTask(props) {
         Delete
       </button>
 
-      <button className="button--complete">
+      <button onClick={() => props.completeTask(props.id)} className="button--complete">
         Completed
         
       </button>
