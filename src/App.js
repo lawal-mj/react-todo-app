@@ -132,15 +132,3 @@ export default function App() {
     </div>
   );
 }
-
-// function deleteTasks(id) {
-//   let newdata = [];
-//   for (let i = 0; i < inputData.length; i++) {
-//     if (id === inputData[i].id) {
-//       inputData[i];
-//     } else {
-//       newdata.push(inputData[i]);
-//     }
-//   }
-//   setInputData(newdata);
-// }
