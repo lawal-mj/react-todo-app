@@ -1,21 +1,28 @@
 import { useState } from "react";
-// components
+
+// Task List Components.
 import OngoingTask from "./components/OngoingTask";
-import Input from "./components/Input";
-import Header from "./components/Header";
 import CompletedTask from "./components/CompletedTask";
-import ToggleCompletedButton from "./components/ToggleCompletedButton";
-import ToggleDeletedButton from "./components/ToggleDeletedButton";
 import DeletedTask from "./components/DeletedTask";
 
+// Other Button Components
+import Input from "./components/Input";
+import Header from "./components/Header";
+import ToggleCompletedButton from "./components/ToggleCompletedButton";
+import ToggleDeletedButton from "./components/ToggleDeletedButton";
+
+
+
+
 export default function App() {
+  // buttons for toggling completed and deleted tasks 
   const [toggleCompleted, setToggleCompleted] = useState(false);
   const [toggleDeleted, setToggleDeleted] = useState(false);
 
   // maintains the state of the input box
   const [inputBoxValue, setinputBoxValue] = useState("");
 
-  // maintains the state of the task data list, i'll use it later to edit tasks, gives default task example
+  // maintains the state of the main data list, used later on to edit tasks, provided with a default task
   const [inputData, setInputData] = useState([
     {
       id: 1,
@@ -23,8 +30,10 @@ export default function App() {
     },
   ]);
 
+  // state for the completed and deleted task lists
   const [completedList, setCompletedList] = useState([]);
   const [deletedList, setDeletedList] = useState([]);
+
 
   // maps over our task data and passes it into the components
   const taskList = inputData.map((item) => {
@@ -39,6 +48,7 @@ export default function App() {
     );
   });
 
+  // makes the enter key work when typing into the task input box 
   function enterKeyPress(event) {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -46,17 +56,20 @@ export default function App() {
     }
   }
 
-  // maps completed tasks to the list
+  // maps completed tasks to the completed task list
   const completedTaskList = completedList.map((item) => {
     return <CompletedTask task={item.task} key={item.id} />;
   });
 
-  // maps completed tasks to the list
+
+  // maps deleted tasks to the deleted task list
   const deletedTaskList = deletedList.map((item) => {
     return <DeletedTask task={item.task} key={item.id} />;
   });
 
+
   // the function will take in id as a parameter and call it from the child component
+  // it deletes tasks from the main list and adds them to the deleted task list 
   function deleteTasks(id) {
     let newdata = [];
     let tempDelete = [...deletedList];
@@ -71,9 +84,9 @@ export default function App() {
     setInputData(newdata);
   }
 
-  console.log(deletedList);
 
-  // adds task to the task list and somehow dosent work without the spread operator
+
+  // adds task to the main task list and somehow dosent work without the spread operator
   function AddTask() {
     if (inputBoxValue === "") {
     } else {
@@ -96,7 +109,7 @@ export default function App() {
     setToggleDeleted(!toggleDeleted);
   }
 
-  // consistently updates the input data as the user changes it
+  // consistently updates the input data state as the user changes it
   function updateInput(event) {
     setinputBoxValue(event.target.value);
   }
