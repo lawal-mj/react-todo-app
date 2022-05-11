@@ -10,7 +10,7 @@ button {
 
 }
 
-.button--delete, .button--complete {
+.button--delete, .button--complete, .button--toggle--completed {
     background-color: red;
     border-radius: 5px;
     margin-left: 4px;
@@ -24,4 +24,10 @@ button {
 
 .button--complete {
     background-color: yellow;
+}
+
+
+.button--toggle--completed {
+    background-color: aqua;
+
 }

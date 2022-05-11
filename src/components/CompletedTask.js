@@ -1,7 +1,7 @@
-export default function CompletedTask(props){
-    return(
-        <li>
-
-        </li>
-    )
+export default function CompletedTask(props) {
+  return (
+    <ul>
+      <li>{props.task}</li>
+    </ul>
+  );
 }
