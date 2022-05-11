@@ -1,28 +1,25 @@
+import { useState } from "react";
+// components 
 import OngoingTask from "./components/OngoingTask";
 import Input from "./components/Input";
 import Header from "./components/Header";
-import { useState } from "react";
 import CompletedTask from "./components/CompletedTask";
 import ToggleCompletedButton from "./components/ToggleCompletedButton";
 
 
-// sample data list with an example task there
-const dataList = [
-  {
-    id: 1,
-    task: "Example Task",
-  },
-];
-
 export default function App() {
-
-  const [ toggleCompleted, setToggleCompleted ] = useState(false);
+  const [toggleCompleted, setToggleCompleted] = useState(false);
 
   // maintains the state of the input box
   const [inputBoxValue, setinputBoxValue] = useState("");
 
-  // maintains the state of the task dataList, i'll use it later to edit tasks
-  const [inputData, setInputData] = useState(dataList);
+  // maintains the state of the task data list, i'll use it later to edit tasks, gives default task example
+  const [inputData, setInputData] = useState([
+    {
+      id: 1,
+      task: "Example Task",
+    },
+  ]);
 
   const [completedList, setCompletedList] = useState([]);
 
@@ -39,6 +36,7 @@ export default function App() {
     );
   });
 
+  // maps completed tasks to the list
   const completedTaskList = completedList.map((item) => {
     return <CompletedTask task={item.task} key={item.id} />;
   });
@@ -68,6 +66,7 @@ export default function App() {
     }
   }
 
+  // toggles the button that displays the completed tasks
   function toggleCompletedTaskView() {
     setToggleCompleted(!toggleCompleted);
   }
@@ -77,6 +76,7 @@ export default function App() {
     setinputBoxValue(event.target.value);
   }
 
+  // removes completed tasks from the main list and adds them to the completed list
   function completeTask(id) {
     let newdata = [];
     let completed = [...completedList];
@@ -90,7 +90,6 @@ export default function App() {
     setCompletedList(completed);
     setInputData(newdata);
   }
-  console.log(completedList);
 
   return (
     <div>
