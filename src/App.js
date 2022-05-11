@@ -18,18 +18,42 @@ export default function App() {
   // maintains the state of the task dataList, i'll use it later to edit tasks
   const [inputData, setInputData] = useState(dataList);
 
+  // maps over our data and passes it into the components 
   const taskList = inputData.map((item) => {
-    return <Task key={item.id} id={item.id} task={item.task} />;
+    return (
+      <Task
+        key={item.id}
+        id={item.id}
+        task={item.task}
+        deleteTasks={deleteTasks}
+      />
+    );
   });
+
+  // the function will take in id as a parameter and call it from the child component
+  function deleteTasks(id) {
+    let newdata= []
+    for (let i = 0; i < inputData.length; i++) {
+      if (id === inputData[i].id) {
+
+      } else {
+        newdata.push(inputData[i]);
+      }
+    }
+    setInputData(newdata);
+  }
 
   // adds task to the task list and somehow dosent work without the spread operator
   function AddTask() {
-    const formData = [...inputData];
-    formData.push({
-      id: inputData.length + 1,
-      task: inputBoxValue,
-    });
-    setInputData(formData);
+    if (inputBoxValue === "") {
+    } else {
+      const formData = [...inputData];
+      formData.push({
+        id: inputData.length + 1,
+        task: inputBoxValue,
+      });
+      setInputData(formData);
+    }
   }
 
   // consistently updates the input data as the user changes it
@@ -40,8 +64,8 @@ export default function App() {
   return (
     <div>
       <Header />
-      <Input updateInput={updateInput} addTask={AddTask} />
       <ul>{taskList}</ul>
+      <Input updateInput={updateInput} addTask={AddTask} />
     </div>
   );
 }

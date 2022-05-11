@@ -1,0 +1,23 @@
+button {
+    border: none;
+}
+
+.button--add {
+    background-color: green;
+    border-radius: 5px;
+    margin-left: 4px;
+
+
+}
+
+.button--delete {
+    background-color: red;
+    border-radius: 5px;
+    margin-left: 4px;
+    font-size: 11px;
+
+}
+
+#root {
+    margin-left: 10px;
+}
