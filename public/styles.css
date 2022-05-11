@@ -31,3 +31,7 @@ button {
     background-color: aqua;
 
 }
+
+.button--toggle--deleted {
+    background-color: purple;
+}
