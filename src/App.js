@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import CompletedTask from "./components/CompletedTask";
 import ToggleCompletedButton from "./components/ToggleCompletedButton";
 import ToggleDeletedButton from "./components/ToggleDeletedButton";
-
 import DeletedTask from "./components/DeletedTask";
 
 export default function App() {
