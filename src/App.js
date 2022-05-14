@@ -59,7 +59,7 @@ export default function App() {
 
   // maps deleted tasks to the deleted task list
   const deletedTaskList = deletedList.map((item) => {
-    return <DeletedTask task={item.task} key={item.id} />;
+    return <DeletedTask task={item.task} key={item.id} id={item.id} restore={restoreDeleted} premDelete={permanentlyDeleteDeleted} />;
   });
 
 
@@ -79,7 +79,7 @@ export default function App() {
     setInputData(newdata);
   }
 
-
+  //remooves tasks from the completed list and adds them back to the main list
   function revertCompletedTask(id) {
     let ongoing = [...inputData];
     let completed = [];
@@ -95,8 +95,6 @@ export default function App() {
   }
 
 
-  console.log(completedList)
-
 
   // adds task to the main task list and somehow dosent work without the spread operator
   // ended up generating random id's because of other issues
@@ -105,7 +103,7 @@ export default function App() {
     } else {
       const formData = [...inputData];
       formData.push({
-        id: Math.floor(Math.random() * 1000000),
+        id: Math.floor(Math.random() * 1000000000),
         task: inputBoxValue,
       });
       setInputData(formData);
@@ -140,6 +138,33 @@ export default function App() {
     }
     setCompletedList(completed);
     setInputData(newdata);
+  }
+
+
+  function restoreDeleted(id){
+    let ongoing = [...inputData];
+    let deleted = [];
+    for (let i = 0; i < deletedList.length; i++) {
+      if (id === deletedList[i].id) {
+        ongoing.push(deletedList[i])
+      } else {
+        deleted.push(deletedList[i]);
+      }
+    }
+    setDeletedList(deleted);
+    setInputData(ongoing);
+  }
+
+  function permanentlyDeleteDeleted(id){
+    let newDelete = [];
+    for (let i = 0; i < deletedList.length; i++) {
+      if (id === deletedList[i].id) {
+
+      } else {
+        newDelete.push(deletedList[i]);
+      }
+    }
+    setDeletedList(newDelete);
   }
 
   return (
