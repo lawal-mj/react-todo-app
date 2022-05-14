@@ -10,7 +10,8 @@ button {
 
 }
 
-.button--delete, .button--complete, .button--toggle--completed, .button--toggle--deleted{
+.button--delete, .button--complete, .button--toggle--completed, .button--toggle--deleted,
+.button--uncompleted{
     background-color: red;
     border-radius: 5px;
     margin-left: 4px;
@@ -38,4 +39,8 @@ button {
 
 .button--toggle--completed, .button--toggle--deleted {
     display: block;
+}
+
+.button--uncompleted{
+    background-color: blueviolet;
 }
