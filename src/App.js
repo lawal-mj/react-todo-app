@@ -53,7 +53,7 @@ export default function App() {
 
   // maps completed tasks to the completed task list
   const completedTaskList = completedList.map((item) => {
-    return <CompletedTask task={item.task} key={item.id} revert={revertCompletedTask}/>;
+    return <CompletedTask task={item.task} key={item.id} revert={revertCompletedTask} id={item.id} />;
   });
 
 
@@ -80,19 +80,32 @@ export default function App() {
   }
 
 
-  function revertCompletedTask(){
-    console.log("Has been returned")
+  function revertCompletedTask(id) {
+    let ongoing = [...inputData];
+    let completed = [];
+    for (let i = 0; i < completedList.length; i++) {
+      if (id === completedList[i].id) {
+        ongoing.push(completedList[i])
+      } else {
+        completed.push(completedList[i]);
+      }
+    }
+    setCompletedList(completed);
+    setInputData(ongoing);
   }
 
 
+  console.log(completedList)
+
 
   // adds task to the main task list and somehow dosent work without the spread operator
+  // ended up generating random id's because of other issues
   function AddTask() {
     if (inputBoxValue === "") {
     } else {
       const formData = [...inputData];
       formData.push({
-        id: inputData.length + 1,
+        id: Math.floor(Math.random() * 1000000),
         task: inputBoxValue,
       });
       setInputData(formData);
@@ -147,4 +160,4 @@ export default function App() {
 }
 
 // on click ill use the id to remove that item from the completed tasks list, then rerender it 
-// After that ill add it to the ongoing tasks list
+// After that ill append it to the ongoing tasks list and re render with set state
