@@ -11,7 +11,7 @@ button {
 }
 
 .button--delete, .button--complete, .button--toggle--completed, .button--toggle--deleted,
-.button--uncompleted{
+.button--uncompleted, .button--restore, .button--perm--delete{
     background-color: red;
     border-radius: 5px;
     margin-left: 4px;
@@ -43,4 +43,13 @@ button {
 
 .button--uncompleted{
     background-color: blueviolet;
+}
+
+
+.button--restore {
+    background-color: goldenrod;
+} 
+
+.button--perm--delete {
+    background-color: indianred;
 }

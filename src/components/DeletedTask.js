@@ -3,8 +3,8 @@ export default function DeletedTask(props) {
       <ul>
         <li>
           {props.task}
-          <button>Restore</button>
-          <button>Permanent delete</button>
+          <button className="button--restore">Restore</button>
+          <button className="button--perm--delete">Permanent delete</button>
           </li>
       </ul>
     );
