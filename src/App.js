@@ -159,5 +159,4 @@ export default function App() {
   );
 }
 
-// on click ill use the id to remove that item from the completed tasks list, then rerender it 
-// After that ill append it to the ongoing tasks list and re render with set state
+// Add permanent delete and restore buttons to the tasks
