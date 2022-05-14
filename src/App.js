@@ -16,10 +16,8 @@ export default function App() {
   // buttons for toggling completed and deleted tasks 
   const [toggleCompleted, setToggleCompleted] = useState(false);
   const [toggleDeleted, setToggleDeleted] = useState(false);
-
   // maintains the state of the input box
   const [inputBoxValue, setinputBoxValue] = useState("");
-
   // maintains the state of the main data list, used later on to edit tasks, provided with a default task
   const [inputData, setInputData] = useState([
     {
@@ -27,7 +25,6 @@ export default function App() {
       task: "Example Task",
     },
   ]);
-
   // state for the completed and deleted task lists
   const [completedList, setCompletedList] = useState([]);
   const [deletedList, setDeletedList] = useState([]);
@@ -56,7 +53,7 @@ export default function App() {
 
   // maps completed tasks to the completed task list
   const completedTaskList = completedList.map((item) => {
-    return <CompletedTask task={item.task} key={item.id} />;
+    return <CompletedTask task={item.task} key={item.id} revert={revertCompletedTask}/>;
   });
 
 
@@ -80,6 +77,11 @@ export default function App() {
       }
     }
     setInputData(newdata);
+  }
+
+
+  function revertCompletedTask(){
+    console.log("Has been returned")
   }
 
 
@@ -143,3 +145,6 @@ export default function App() {
     </div>
   );
 }
+
+// on click ill use the id to remove that item from the completed tasks list, then rerender it 
+// After that ill add it to the ongoing tasks list
