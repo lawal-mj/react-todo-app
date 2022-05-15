@@ -138,7 +138,7 @@ export default function App() {
     setInputData(newdata);
   }
 
-
+  // restores tasks from the deleted list to the main list 
   function restoreDeleted(id) {
     let ongoing = [...inputData];
     let deleted = [];
@@ -153,6 +153,7 @@ export default function App() {
     setInputData(ongoing);
   }
 
+  // permanentlyDeletes tasks from the deleted list 
   function permanentlyDeleteDeleted(id) {
     let newDelete = [];
     for (let i = 0; i < deletedList.length; i++) {
