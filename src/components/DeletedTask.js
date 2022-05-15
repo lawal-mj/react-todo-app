@@ -1,6 +1,6 @@
 export default function DeletedTask(props) {
     return (
-      <ul>
+      <ul className="">
         <li>
           {props.task}
           <button onClick={()=>props.restore(props.id)} className="button--restore">Restore</button>

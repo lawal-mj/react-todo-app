@@ -1,6 +1,6 @@
 export default function Input(props) {
   return (
-    <div className="text-center">
+    <div className="">
       <input onKeyPress={props.handleKeyPress} type="text" id="input--box" onChange={props.updateInput} />
       <button className="button--add" id="add--task" onClick={props.addTask}>
         Add Task

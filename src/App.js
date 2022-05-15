@@ -139,7 +139,7 @@ export default function App() {
   }
 
 
-  function restoreDeleted(id){
+  function restoreDeleted(id) {
     let ongoing = [...inputData];
     let deleted = [];
     for (let i = 0; i < deletedList.length; i++) {
@@ -153,7 +153,7 @@ export default function App() {
     setInputData(ongoing);
   }
 
-  function permanentlyDeleteDeleted(id){
+  function permanentlyDeleteDeleted(id) {
     let newDelete = [];
     for (let i = 0; i < deletedList.length; i++) {
       if (id === deletedList[i].id) {
@@ -175,9 +175,11 @@ export default function App() {
         toggleCompletedTasks={toggleCompletedTaskView}
         toggleDeletedTasks={toggleDeletedTaskView}
       />
-      <ul>{taskList}</ul>
-      {toggleCompleted && completedTaskList}
-      {toggleDeleted && deletedTaskList}
+      <div className="">
+        {taskList}
+        {toggleCompleted && completedTaskList}
+        {toggleDeleted && deletedTaskList}
+      </div>
     </div>
   );
 }
