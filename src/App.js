@@ -175,7 +175,7 @@ export default function App() {
         toggleCompletedTasks={toggleCompletedTaskView}
         toggleDeletedTasks={toggleDeletedTaskView}
       />
-      <div className="">
+      <div className="main--body">
         {taskList}
         {toggleCompleted && completedTaskList}
         {toggleDeleted && deletedTaskList}

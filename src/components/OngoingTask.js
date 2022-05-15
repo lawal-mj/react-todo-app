@@ -1,6 +1,6 @@
 export default function OngoingTask(props) {
   return (
-    <ul className="">
+    <ul className="main--item">
       <li>
         {props.task}
         <button
