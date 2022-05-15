@@ -6,8 +6,6 @@ import DeletedTask from "./components/DeletedTask";
 // Other Button Components
 import Input from "./components/Input";
 import Header from "./components/Header";
-import ToggleCompletedButton from "./components/ToggleCompletedButton";
-import ToggleDeletedButton from "./components/ToggleDeletedButton";
 
 
 
@@ -168,17 +166,17 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="container mx-auto">
       <Header />
-      <ul>{taskList}</ul>
       <Input
         updateInput={updateInput}
         addTask={AddTask}
         handleKeyPress={enterKeyPress}
+        toggleCompletedTasks={toggleCompletedTaskView}
+        toggleDeletedTasks={toggleDeletedTaskView}
       />
-      <ToggleCompletedButton toggle={toggleCompletedTaskView} />
+      <ul>{taskList}</ul>
       {toggleCompleted && completedTaskList}
-      <ToggleDeletedButton toggle={toggleDeletedTaskView} />
       {toggleDeleted && deletedTaskList}
     </div>
   );
