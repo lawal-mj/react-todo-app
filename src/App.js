@@ -177,23 +177,23 @@ export default function App() {
             toggleDeletedTasks={toggleDeletedTaskView}
          />
          <div className="flex mx-7 my-3">
-            <div className="flex-1">
-               <h1 className="text-2xl text-center">Ongoing Tasks</h1>
+            <div className="flex-1 mx-2">
+               <h1 className="text-2xl text-center font-bold">Ongoing Tasks</h1>
                {taskList}
             </div>
 
             {
                toggleCompleted &&
-               <div className="flex-1">
-                  <h1 className="text-2xl text-center">Completed Tasks</h1>
+               <div className="flex-1 mx-2">
+                  <h1 className="text-2xl text-center font-bold">Completed Tasks</h1>
                   {completedTaskList}
                </div>
             }
 
             {
                toggleDeleted &&
-               <div className="flex-1">
-                  <h1 className="text-2xl text-center">Deleted Tasks</h1>
+               <div className="flex-1 mx-2">
+                  <h1 className="text-2xl text-center font-bold">Deleted Tasks</h1>
                   {deletedTaskList}
                </div>
             }
