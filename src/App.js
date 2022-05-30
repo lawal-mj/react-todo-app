@@ -178,11 +178,15 @@ export default function App() {
       />
       <div className="main--body">
         {taskList}
+        {toggleCompleted && <h1>Completed Tasks</h1>}
         {toggleCompleted && completedTaskList}
+        
+        {toggleDeleted && <h1>Deleted Tasks</h1> }
         {toggleDeleted && deletedTaskList}
       </div>
     </div>
   );
 }
+
 
 // Add permanent delete and restore buttons to the tasks

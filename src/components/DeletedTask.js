@@ -1,7 +1,6 @@
 export default function DeletedTask(props) {
   return (
     <div>
-      <h3>Deleted Tasks</h3>
       <ul className="main--item">
 
         <li>
