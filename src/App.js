@@ -14,8 +14,10 @@ export default function App() {
    // buttons for toggling completed and deleted tasks 
    const [toggleCompleted, setToggleCompleted] = useState(false);
    const [toggleDeleted, setToggleDeleted] = useState(false);
+   
    // maintains the state of the input box
    const [inputBoxValue, setinputBoxValue] = useState("");
+   
    // maintains the state of the main data list, used later on to edit tasks, provided with a default task
    const [inputData, setInputData] = useState([
       {
@@ -23,6 +25,7 @@ export default function App() {
          task: "Example Task",
       },
    ]);
+   
    // state for the completed and deleted task lists
    const [completedList, setCompletedList] = useState([]);
    const [deletedList, setDeletedList] = useState([]);
