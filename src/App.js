@@ -207,4 +207,3 @@ export default function App() {
 }
 
 
-// Add permanent delete and restore buttons to the tasks
